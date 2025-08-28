@@ -63,12 +63,16 @@
             aria-hidden="true">&nbsp;</i>Hotels</li>
         <li class="underlined" data-title="Do something fun"><i class="fa fa-camera" aria-hidden="true">&nbsp;</i>Things
           to Do</li>
-        <li class="underlined" data-title="Find places to eat"><i class="fa fa-cutlery"
-            aria-hidden="true">&nbsp;</i>Restaurants</li>
-        <li class="underlined" data-title="Find the best flight"><i class="fa fa-plane"
-            aria-hidden="true">&nbsp;</i>Flights</li>
-        <li class="underlined" data-title="Explore places to rent"><i class="fa fa-home"
-            aria-hidden="true">&nbsp;</i>Holiday Homes</li>
+        <li class="underlined" data-title="Find the best restaurants" onclick="openRestaurant()">
+          <i class="fa fa-cutlery" aria-hidden="true">&nbsp;</i>Restaurants
+        </li>
+        <li class="underlined" data-title="Find the best flight" onclick="openFlights()">
+          <i class="fa fa-plane" aria-hidden="true">&nbsp;</i>Flights
+        </li>
+        <li class="underlined" data-title="Find the best holiday homes" onclick="openHomes()">
+          <i class="fa fa-home" aria-hidden="true">&nbsp;</i>Holiday Homes
+        </li>
+
 
       </ul>
     </div>
@@ -152,7 +156,8 @@
         <div class="card-content">
           <div class="information-capsules">
             <div class="price-capsule">From &#8377;2500</div>
-            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i><i class="far fa-star"></i></div>
+            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+                class="far fa-star"></i><i class="far fa-star"></i></div>
           </div>
           <div class="tour-information">
             <p>A good traveler has no fixed plans and is not intent on arriving.</p>
@@ -166,7 +171,8 @@
         <div class="card-content">
           <div class="information-capsules">
             <div class="price-capsule">From &#8377;3000</div>
-            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i><i class="far fa-star"></i></div>
+            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+                class="fas fa-star"></i><i class="far fa-star"></i></div>
           </div>
           <div class="tour-information">
             <p>The journey of a thousand miles begins with a single step.</p>
@@ -180,7 +186,8 @@
         <div class="card-content">
           <div class="information-capsules">
             <div class="price-capsule">From &#8377;5000</div>
-            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
           <div class="tour-information">
             <p>Travel is the only thing you buy that makes you richer.</p>
@@ -211,6 +218,116 @@
     </div>
     <div class="whatsapp-message">WhatsApp Us</div>
   </div>
+  <div id="flightOverlay" class="overlay">
+    <div class="modal flight-modal">
+      <span class="close" onclick="closeFlights()">&times;</span>
+      <iframe src="flights.html"></iframe>
+    </div>
+  </div>
+
+  <!-- Holiday Homes Overlay -->
+<div id="homesOverlay" class="overlay">
+  <div class="modal">
+    <span class="close" onclick="closeHomes()">&times;</span>
+    <div class="homes-container">
+      <h2>Available Holiday Homes</h2>
+      <div class="homes-grid">
+
+        <!-- Home 1 -->
+        <div class="home-card">
+          <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511" alt="Banur Home">
+          <h3>Asija Holiday Home Banur</h3>
+          <p>Peaceful countryside stay with modern amenities.</p>
+          <span class="price">₹1,200/night</span>
+        </div>
+
+        <!-- Home 2 -->
+        <div class="home-card">
+          <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353" alt="Rajpura Home">
+          <h3>Sunam Holiday Villa Rajpura</h3>
+          <p>Spacious villa, perfect for families and groups.</p>
+          <span class="price">₹1,800/night</span>
+        </div>
+
+        <!-- Home 3 -->
+        <div class="home-card">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipPdWfDnkrFjEMXgN7K5Tu2GbneWFtIBtMHIGbe_=w574-h384-n-k-rw-no-v1" alt="Chandigarh Home">
+          <h3>Royal Luxury Apartment Chandigarh</h3>
+          <p>Modern apartment in the heart of the city.</p>
+          <span class="price">₹2,500/night</span>
+        </div>
+
+        <!-- Home 4 -->
+        <div class="home-card">
+          <img src="https://lh3.googleusercontent.com/proxy/8bdOJkGAzv7qF8pbd6rYLAOFXeTdDqodoz7iFNlzbP0HKapPB0RBxdarU0VnkCddV-QvjhH4R0wP67OuX3meXVE1Y6uiBTFaZPf-r3ChSv5b2_xaCUHokaXCZoN7cN6pmxTN-UFYL88rPXtZ8CI8NHqeaWui_w=w472-h352-n-k" alt="Shimla Home">
+          <h3>Himalayan Retreat Shimla</h3>
+          <p>Mountain-view home surrounded by pine trees.</p>
+          <span class="price">₹3,000/night</span>
+        </div>
+
+        <!-- Home 5 -->
+        <div class="home-card">
+          <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="Manali Home">
+          <h3>Riverfront Cottage Manali</h3>
+          <p>Cozy cottage near the river, ideal for couples.</p>
+          <span class="price">₹2,200/night</span>
+        </div>
+
+        <!-- Home 6 -->
+        <div class="home-card">
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Kasol Home">
+          <h3>Greenwoods Stay Kasol</h3>
+          <p>Beautiful eco-friendly home amidst lush greenery.</p>
+          <span class="price">₹1,600/night</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Restaurant Modal -->
+  <div id="restaurantModal" class="restaurant-section hidden">
+    <div class="restaurant-container">
+      <span class="close-btn" onclick="closeRestaurant()">✖</span>
+      <h2>Top Restaurants</h2>
+
+      <div class="restaurant-grid">
+        <div class="restaurant-card">
+          <img src="images/restro1.png" alt="Restaurant 1">
+          <h3>Spice Hub</h3>
+          <p>Authentic Indian Cuisine</p>
+        </div>
+        <div class="restaurant-card">
+          <img src="images/restro2.png" alt="Restaurant 2">
+          <h3>Dragon Wok</h3>
+          <p>Delicious Chinese Food</p>
+        </div>
+        <div class="restaurant-card">
+          <img src="images/restro3.png" alt="Restaurant 3">
+          <h3>La Pizzeria</h3>
+          <p>Italian Pasta & Pizza</p>
+        </div>
+        <div class="restaurant-card">
+          <img src="images/restro4.png" alt="Restaurant 4">
+          <h3>Burger Point</h3>
+          <p>Best Burgers in Town</p>
+        </div>
+        <div class="restaurant-card">
+          <img src="images/restro5.png" alt="Restaurant 5">
+          <h3>Sushi Zen</h3>
+          <p>Fresh Japanese Sushi</p>
+        </div>
+        <div class="restaurant-card">
+          <img src="images/restro6.png" alt="Restaurant 6">
+          <h3>Cafe Aroma</h3>
+          <p>Cozy Coffee & Snacks</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 

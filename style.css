@@ -287,14 +287,17 @@
 .destinations {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    margin: 12px 88px 2px;
-    width: 1350px;
+    align-items: center;  
+    margin: 40px auto;     
+    max-width: 1350px;     
     padding: 22px;
     box-sizing: border-box;
 }
-.destinations h1{
+.destinations h1 {
     font-size: 32px;
+    text-align: center; 
+    margin-bottom: 20px;
+    width: 100%;
 }
 .slider-container {
     position: relative;
@@ -541,4 +544,212 @@
   .img-container {
     min-width: 70%;
   }
+}
+
+/* Overlay for Flights */
+.overlay {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7); /* dark background */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+.flight-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  height: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.flight-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.flight-modal .close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Same overlay style as flights
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+} */
+
+.overlay.active {
+  display: flex;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 85%;
+  max-width: 1000px;
+  height: 80%;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Close button */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal .close:hover {
+  color: red;
+}
+
+/* Holiday homes grid */
+.homes-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #444;
+}
+
+.homes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.home-card {
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.home-card:hover {
+  transform: translateY(-5px);
+}
+
+.home-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.home-card h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.home-card p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.home-card .price {
+  font-weight: bold;
+  font-size: 16px;
+  color: #2a9d8f;
+}
+
+/* Restaurant Section Modal */
+.restaurant-section {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.restaurant-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 900px;
+  position: relative;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.restaurant-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  padding: 10px;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.05);
+}
+
+.restaurant-card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.restaurant-card h3 {
+  margin: 10px 0 5px;
+  color: #0077cc;
+}
+
+.hidden {
+  display: none;
 }

@@ -150,3 +150,41 @@ track.addEventListener('touchend', (e) => {
     updateSlide();
   }
 });
+
+// Get flight overlay
+const flightOverlay = document.getElementById("flightOverlay");
+
+// Function to open flights modal
+function openFlights() {
+  flightOverlay.style.display = "flex";   // or "block"
+  document.body.style.overflow = "hidden"; // prevent background scroll
+}
+// Function to close flights modal
+function closeFlights() {
+  flightOverlay.style.display = "none";
+  document.body.style.overflow = "auto"; // restore scroll
+}
+
+// Close when clicking outside modal
+window.addEventListener("click", function (e) {
+  if (e.target === flightOverlay) {
+    closeFlights();
+  }
+});
+
+function openHomes() {
+  document.getElementById("homesOverlay").style.display = "flex";
+}
+
+function closeHomes() {
+  document.getElementById("homesOverlay").style.display = "none";
+}
+
+
+function openRestaurant() {
+  document.getElementById("restaurantModal").classList.remove("hidden");
+}
+
+function closeRestaurant() {
+  document.getElementById("restaurantModal").classList.add("hidden");
+}

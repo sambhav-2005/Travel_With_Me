@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Search</title>
+  <link rel="stylesheet" href="flights.css">
+</head>
+<body>
+  <div class="flight-container">
+    
+    <!-- Search Form -->
+    <div class="search-box">
+      <h2>Find Your Flight</h2>
+      <form id="flightForm">
+        <div class="form-row">
+          <input type="text" id="from" placeholder="From (e.g. Chandigarh)" required>
+          <input type="text" id="to" placeholder="To (e.g. Delhi)" required>
+        </div>
+        <div class="form-row">
+          <input type="date" id="date" required>
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Filters -->
+    <div id="filters" class="filters hidden">
+      <label for="sort">Sort By:</label>
+      <select id="sort">
+        <option value="low-high">Price: Low to High</option>
+        <option value="high-low">Price: High to Low</option>
+        <option value="earliest">Earliest Departure</option>
+      </select>
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="results"></div>
+  </div>
+
+  <script>
+    // Restrict date to today and future
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("date").setAttribute("min", today);
+
+    // Dummy flight data
+    const flights = [
+      { from: "Chandigarh", to: "Delhi", time: "06:30", price: 2500 },
+      { from: "Chandigarh", to: "Delhi", time: "09:00", price: 3200 },
+      { from: "Chandigarh", to: "Delhi", time: "14:15", price: 2800 },
+      { from: "Chandigarh", to: "Delhi", time: "19:45", price: 4000 }
+    ];
+
+    const resultsDiv = document.getElementById("results");
+    const filtersDiv = document.getElementById("filters");
+    const sortSelect = document.getElementById("sort");
+
+    // Handle search
+    document.getElementById("flightForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const from = document.getElementById("from").value.trim().toLowerCase();
+      const to = document.getElementById("to").value.trim().toLowerCase();
+
+      // Filter flights
+      const foundFlights = flights.filter(f => 
+        f.from.toLowerCase() === from && f.to.toLowerCase() === to
+      );
+
+      displayFlights(foundFlights);
+      if (foundFlights.length) filtersDiv.classList.remove("hidden");
+    });
+
+    // Display flights
+    function displayFlights(list) {
+      resultsDiv.innerHTML = "";
+      if (list.length === 0) {
+        resultsDiv.innerHTML = `<p class="no-results">No flights found.</p>`;
+        return;
+      }
+      list.forEach(f => {
+        const card = document.createElement("div");
+        card.className = "flight-card";
+        card.innerHTML = `
+          <h3>${f.from} ✈ ${f.to}</h3>
+          <p><strong>Departure:</strong> ${f.time}</p>
+          <p><strong>Price:</strong> ₹${f.price}</p>
+        `;
+        resultsDiv.appendChild(card);
+      });
+    }
+
+    // Sorting
+    sortSelect.addEventListener("change", function() {
+      let sorted = [...flights].filter(f => 
+        f.from.toLowerCase() === document.getElementById("from").value.trim().toLowerCase() &&
+        f.to.toLowerCase() === document.getElementById("to").value.trim().toLowerCase()
+      );
+
+      if (this.value === "low-high") {
+        sorted.sort((a,b) => a.price - b.price);
+      } else if (this.value === "high-low") {
+        sorted.sort((a,b) => b.price - a.price);
+      } else if (this.value === "earliest") {
+        sorted.sort((a,b) => a.time.localeCompare(b.time));
+      }
+      displayFlights(sorted);
+    });
+  </script>
+</body>
+</html>
