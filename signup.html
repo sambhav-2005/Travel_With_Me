@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - Travel With Me</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="shortcut icon" href="favicon_io\favicon.ico" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="signup-container">
+        <div class="img"><img src="images/logo-removebg-preview.png" alt="logo"></div>
+        <h2>Create new Account</h2>
+        <div id="successMessage">
+            <p>Sign up successful! Redirecting to login...</p>
+        </div>
+        <form id="signupForm">
+            <input type="text" id="name" name="name" placeholder="Your Name">
+            <small id="nameError" style="color: red;"></small>
+            <input type="email" id="email" name="email" placeholder="Email Address">
+            <small id="emailError" style="color: red;"></small>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+            <small id="phoneError" style="color: red;"></small>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <small id="passError" style="color: red;"></small>
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password">
+            <small id="confirmError" style="color: red;"></small>
+            <button type="submit">Sign Up</button>
+            <a class="login-link" href="/index.html">Already have an account? Sign in</a>
+            <p class="terms">
+                By proceeding, you agree to our <a href="#">Terms of Use</a> and confirm
+                you have read our <a href="#">Privacy and Cookie Statement</a>.
+            </p>
+        </form>
+    </div>
+
+
+    <script>
+
+        const form = document.getElementById("signupForm");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let valid = true;
+            const name = document.getElementById("name").value.trim();
+            document.getElementById("nameError").textContent = name.length === 0 ? "This field cannot be left blank" : "";
+            if (name.length === 0) valid = false;
+
+            const email = document.getElementById("email").value.trim();
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            document.getElementById("emailError").textContent =
+                !emailPattern.test(email) ? "Enter a valid email" : "";
+
+            if (!emailPattern.test(email)) valid = false;
+
+            const phoneNumber = document.getElementById("phone").value.trim();
+            const phonePattern = /^[0-9]{10}$/;
+            document.getElementById("phoneError").textContent = !phonePattern.test(phoneNumber) ? "Enter a valid 10 digit phone number" : "";
+            if (!phonePattern.test(phoneNumber)) valid = false;
+
+
+
+            const password = document.getElementById("password").value;
+            document.getElementById("passError").textContent = password.length < 6 ? "Password must be atleast 6 characters" : "";
+
+            if (password.length < 6) valid = false;
+
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            document.getElementById("confirmError").textContent = password !== confirmPassword ? "Passwords do not match" : "";
+
+            if (password !== confirmPassword) valid = false;
+            if (valid) {
+                const userData = {
+                    name: name,
+                    email: email,
+                    phone: phoneNumber,
+                    password: password,
+                };
+
+                localStorage.setItem(email, JSON.stringify(userData));
+
+                form.reset();
+            }
+
+            if (valid) {
+                document.getElementById("successMessage").style.display = "block";
+                setTimeout(function () {
+                    window.location.href = "index.html";
+
+                }, 2000);
+
+            }
+        });
+
+    </script>
+</body>
+
+</html>

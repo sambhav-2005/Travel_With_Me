@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: auto;
+    width: 440px;
+    max-width: 95vw;
+}
+.img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img img{
+    height: 180px;
+    width: 180px;
+    max-width: 80vw;
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.terms {
+    font-size: 13px;
+    color: #555;
+}
+.terms a {
+    color: green;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #4cafef;
+  box-shadow: 0 0 5px rgba(76, 175, 239, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4cafef;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3399dd;
+}
+
+.login-link {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+form a{
+    color: inherit;
+    text-decoration: none;
+}
+
+#successMessage{
+    display: none;
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}

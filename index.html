@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel With Me</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="shortcut icon" href="favicon_io\favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <div class="navbar">
+      <ul>
+        <li><a href="index.html"><img src="images/imag-logo-removebg-preview.png" alt="logo"></a></li>
+        <li class="capsule">
+          Discover
+          <ul class="drop-down">
+            <li>Traveller's choice</li>
+            <li>Travel Stories</li>
+          </ul>
+        </li>
+        <li class="capsule">
+          Trips
+          <ul class="drop-down">
+            <li>View my Trips</li>
+            <li>Start a New Trip</li>
+            <li>Book with us</li>
+          </ul>
+        </li>
+        <li class="capsule">
+          Reviews
+          <ul class="drop-down">
+            <li>Write a review</li>
+            <li>Share a Trip</li>
+            <li>Post photos</li>
+            <li>Add a place</li>
+          </ul>
+        </li>
+        <li class="capsule">More</li>
+        <li class="search-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="search_element" type="text" name="search_bar" placeholder="Search">
+        </li>
+        <li><button id="btn-sign-in">Log in</button></li>
+        <li><a href="signup.html"><button id="btn-sign-up">Sign up</button></a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="header">
+    <h1 id="temp_text">Where to?</h1>
+    <div class="choices">
+      <ul>
+        <li class="underlined"><i class="fa fa-list" aria-hidden="true">&nbsp;</i>Search All</li>
+        <li class="underlined" data-title="Stay somewhere Great"><i class="fa fa-bed"
+            aria-hidden="true">&nbsp;</i>Hotels</li>
+        <li class="underlined" data-title="Do something fun"><i class="fa fa-camera" aria-hidden="true">&nbsp;</i>Things
+          to Do</li>
+        <li class="underlined" data-title="Find places to eat"><i class="fa fa-cutlery"
+            aria-hidden="true">&nbsp;</i>Restaurants</li>
+        <li class="underlined" data-title="Find the best flight"><i class="fa fa-plane"
+            aria-hidden="true">&nbsp;</i>Flights</li>
+        <li class="underlined" data-title="Explore places to rent"><i class="fa fa-home"
+            aria-hidden="true">&nbsp;</i>Holiday Homes</li>
+
+      </ul>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="left">
+      <div class="slideshow">
+        <div class="slide"><img src="images/caption1.jpg" alt="img2"></div>
+        <div class="slide"><img src="images/caption2.jpg" alt="img2"></div>
+        <div class="slide"><img src="images/caption3.jpg" alt="img3"></div>
+        <div class="slide"><img src="images/caption4.jpg" alt="img4"></div>
+      </div>
+      <div class="mention-capsule">
+        <p id="caption-text">@John C</p>
+      </div>
+    </div>
+    <div class="partition">&nbsp;</div>
+    <div class="right">
+      <div class="content">
+        <h1 class="heading">Find things to do for everything you're into</h1>
+        <p>Browse 400,000+ experiences and book with us.</p>
+        <button id="btn-book-now">Book now</button>
+      </div>
+    </div>
+  </section>
+  <section class="destinations">
+    <h1>Best Selling Destinations</h1>
+    <div class="slider-container">
+      <button class="prev">&#10094;</button>
+      <div class="slider-track">
+        <div class="img-container">
+          <img src="images/keral.jpg" alt="keral">
+          <div class="dest-caption">Kerela</div>
+        </div>
+        <div class="img-container">
+          <img src="images/manal.jpg" alt="manali">
+          <div class="dest-caption">Manali</div>
+        </div>
+        <div class="img-container">
+          <img src="images/goa.jpg" alt="keral">
+          <div class="dest-caption">Goa</div>
+        </div>
+        <div class="img-container">
+          <img src="images/jaipur.jpg" alt="keral">
+          <div class="dest-caption">Jaipur</div>
+        </div>
+        <div class="img-container">
+          <img src="images/rishikesh.jpg" alt="keral">
+          <div class="dest-caption">Rishikesh</div>
+        </div>
+        <div class="img-container">
+          <img src="images/newdelhi.jpg" alt="keral">
+          <div class="dest-caption">New Delhi</div>
+        </div>
+        <div class="img-container">
+          <img src="images/coorgupdated.jpg" alt="coorg">
+          <div class="dest-caption">Coorg</div>
+        </div>
+        <div class="img-container">
+          <img src="images/lakshdweep.jpg" alt="lakshdweep">
+          <div class="dest-caption">Lakshdweep</div>
+        </div>
+        <div class="img-container">
+          <img src="images/pahalgham.jpg" alt="Pahalgham">
+          <div class="dest-caption">Pahalgham</div>
+        </div>
+        <div class="img-container">
+          <img src="images/mysore.jpg" alt="mysore">
+          <div class="dest-caption">Mysore</div>
+        </div>
+      </div>
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+  <section class="featured-tours">
+    <h1>Featured Tours</h1>
+    <h2>Most Popular Tours</h2>
+    <div class="tour-cards">
+      <div class="first-tour">
+        <img src="images/tour1.jpg" alt="tour1">
+        <div class="card-content">
+          <div class="information-capsules">
+            <div class="price-capsule">From &#8377;2500</div>
+            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i><i class="far fa-star"></i></div>
+          </div>
+          <div class="tour-information">
+            <p>A good traveler has no fixed plans and is not intent on arriving.</p>
+            <p2>Kuala Lumpur, Malaysia</p2>
+          </div>
+        </div>
+      </div>
+
+      <div class="first-tour">
+        <img src="images/tour2.jpg" alt="tour1">
+        <div class="card-content">
+          <div class="information-capsules">
+            <div class="price-capsule">From &#8377;3000</div>
+            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i><i class="far fa-star"></i></div>
+          </div>
+          <div class="tour-information">
+            <p>The journey of a thousand miles begins with a single step.</p>
+            <p2>Sentosa Island, Singapore</p2>
+          </div>
+        </div>
+      </div>
+
+      <div class="first-tour">
+        <img src="images/tour3.jpg" alt="tour1">
+        <div class="card-content">
+          <div class="information-capsules">
+            <div class="price-capsule">From &#8377;5000</div>
+            <div class="rate-capsule"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          </div>
+          <div class="tour-information">
+            <p>Travel is the only thing you buy that makes you richer.</p>
+            <p2>Phuket, Thailand</p2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <div id="modalOverlay" class="overlay">
+    <div class="modal">
+      <span class="close">&times;</span>
+      <img src="images/imag-logo-removebg-preview.png" alt="logo00" height="200px" width="200px">
+      <h2>Sign in to unlock the best experience with us</h2>
+      <button class="google-btn"><img src="images/G_color_40x40.png" alt="Google" height="20px"><span>Continue with
+          Google</span></button>
+      <button class="email-btn"><i class="fas fa-envelope"></i>Continue with email</button>
+      <p class="terms">
+        By proceeding, you agree to our <a href="#">Terms of Use</a> and confirm
+        you have read our <a href="#">Privacy and Cookie Statement</a>.
+      </p>
+    </div>
+  </div>
+  <div class="whatsapp-wrapper">
+    <div class="circular_btn">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </div>
+    <div class="whatsapp-message">WhatsApp Us</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

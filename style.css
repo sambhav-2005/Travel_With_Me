@@ -1,0 +1,544 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.navbar ul li {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.capsule {
+    border-radius: 18px;
+    padding: 8px;
+    transition: background-color 0.1s;
+}
+
+.capsule:hover {
+    background-color: rgb(239, 237, 237);
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    width: 400px;
+    padding-right: 30px;
+}
+
+.search-container .fa-solid {
+    position: absolute;
+    right: 16px;
+    pointer-events: none;
+}
+
+.navbar ul li img {
+    height: 220px;
+    width: 230px;
+}
+
+.navbar .drop-down {
+    display: none;
+    position: absolute;
+    width: 220px;
+    height: auto;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(253, 253, 245);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    list-style: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: unset;
+    max-width: unset;
+    z-index: 100;
+}
+
+.navbar .drop-down::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid rgb(253, 253, 245);
+}
+
+.navbar .drop-down::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 12px solid #ddd;
+    z-index: -1;
+}
+
+.navbar .drop-down li {
+    padding: 10px 15px;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.navbar .drop-down li:hover {
+    background: rgb(239, 237, 237);
+}
+
+
+#btn-sign-in {
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(8, 8, 40);
+    color: white;
+    cursor: pointer;
+}
+
+#btn-sign-up {
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(8, 8, 40);
+    color: white;
+    cursor: pointer;
+}
+
+
+.search-container input {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 8px 30px 8px 10px;
+}
+
+#search_element {
+    padding: 10px;
+    border: 5px solid rgb(8, 8, 40);
+    border-radius: 20px;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    margin: 0px 0px 50px;
+    font-size: 20px;
+
+}
+
+.header h1 {
+    font-size: 55px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.header .choices ul {
+    display: flex;
+    justify-content: center;
+    margin: 10px 30px;
+    padding: 30px 0px 0px 0px;
+    gap: 30px;
+}
+
+.header .choices ul li {
+    list-style: none;
+    margin: 0px 5px;
+    padding: 0px 5px 4px;
+}
+
+.header .choices ul li:hover {
+    cursor: pointer;
+}
+
+.header .choices .underlined {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.1s ease;
+}
+
+.header .choices .underlined:hover {
+    border-bottom: 1px solid rgb(8, 8, 40);
+}
+
+.hero {
+    height: 500px;
+    width: 1280px;
+    background-color: rgb(8, 8, 40);
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-self: anchor-center;
+}
+
+.hero:hover {
+    cursor: pointer;
+}
+
+.hero .left {
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex: 1 1 0;
+    margin: 7px 55px 10px 5px;
+    padding: 25px;
+    position: relative;
+}
+
+.hero .left .slideshow {
+    width: 100%;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-left: 38px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero .left .slideshow .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+
+.hero .left .slideshow .slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero .left .mention-capsule {
+    background-color: rgb(8, 8, 40);
+    width: 80px;
+    position: absolute;
+    border-radius: 20px;
+    justify-content: center;
+    border: 1px solid white;
+    padding: 6px;
+    bottom: 78px;
+    left: 70px;
+}
+
+.hero .partition {
+    height: 440px;
+    width: 0.1px;
+    background-color: white;
+    margin-top: 24px;
+}
+
+.hero .right {
+    height: 100%;
+    min-width: 0;
+    flex: 1 1 0;
+    box-sizing: border-box;
+}
+
+.hero .right .content {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    margin: 20px 0px;
+    padding: 25px;
+}
+
+.hero .right .content .heading {
+    width: 350px;
+    font-size: 48px;
+    margin: 10px;
+}
+
+#btn-book-now {
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.destinations {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 12px 88px 2px;
+    width: 1350px;
+    padding: 22px;
+    box-sizing: border-box;
+}
+.destinations h1{
+    font-size: 32px;
+}
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.destinations .slider-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+
+}
+
+.img-container {
+    position: relative;
+    min-width: 250px;
+    max-width: 280px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    margin-top: 22px;
+}
+
+.destinations .slider-track .img-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dest-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    padding: 6px 12px;
+    border-top-right-radius: 8px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.prev, .next {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.featured-tours{
+    display: flex;
+    flex-direction: column;
+    margin: 14px;
+    padding: 34px;
+    align-items: center;
+}
+.featured-tours h1{
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.featured-tours .tour-cards{
+    display: flex;
+    justify-content: center;
+    padding: 34px;
+    gap: 52px;
+}
+.featured-tours .tour-cards .first-tour{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    width: 360px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 24px rgba(8, 8, 40, 0.15);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.featured-tours .tour-cards .first-tour:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.featured-tours .tour-cards .first-tour img{
+    height: 300px;
+    width: 360px;
+    margin: 0;
+
+}
+.featured-tours .tour-cards .tour-information{
+    width: 300px;
+    margin: 10px;
+    padding: 12px;
+}
+.information-capsules{
+    display: flex;
+    margin: 22px 28px 0px;
+    gap: 20px;
+}
+.tour-information p{
+    padding: 5px;
+}
+.tour-information p2{
+    padding: 5px;
+    font-size: 15px;
+    color:#555;
+}
+
+.price-capsule, .rate-capsule{
+    background-color: rgb(8, 8, 40);
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 6px;
+}
+.rate-capsule .fas, .far{
+    color: white;
+    padding: 2px;
+}
+
+.whatsapp-wrapper {
+    position: fixed;
+    bottom: 10px;
+    right: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.circular_btn {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(18, 175, 18);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.circular_btn .fa-whatsapp {
+    color: white;
+    font-size: 28px;
+
+}
+
+.whatsapp-message {
+    background: rgb(18, 175, 18);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.whatsapp-wrapper:hover .whatsapp-message {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+.overlay {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    gap: 1.5rem;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.google-btn,.email-btn {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+}
+
+.email-btn .fa-envelope {
+    font-size: 20px;
+
+}
+
+.terms {
+    font-size: 14px;
+    color: #555;
+}
+
+.terms a {
+    color: green;
+}
+
+@media (max-width: 768px) {
+  .img-container {
+    min-width: 70%;
+  }
+}
