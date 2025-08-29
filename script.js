@@ -22,25 +22,48 @@ document.addEventListener("click", () => {
   });
 });
 
-// Heading text changes
+// Heading text changes and placeholder of search bar changes
 const heading = document.getElementById("temp_text");
 const listItems = document.querySelectorAll(".choices ul li");
 
 const defaultText = "Where to?";
+const defaultPlaceholder = "Places to go, things to do, hotels...";
+
+const defaultSearch = document.querySelector(".default-search");
+const flightsSearch = document.querySelector(".flights-search");
+const searchInput = document.getElementById("search_element");
+
+heading.textContent = defaultText;
+searchInput.placeholder = defaultPlaceholder;
+defaultSearch.style.display = "block";
+flightsSearch.style.display = "none";
 
 listItems.forEach(item => {
   item.addEventListener("click", () => {
     const newText = item.getAttribute("data-title");
+    const newPlaceholder = item.getAttribute("data-placeholder");
+
+    // reset visibility
+    defaultSearch.style.display = "block";
+    flightsSearch.style.display = "none";
 
     if (!newText || newText.toLowerCase() === "search all") {
       heading.textContent = defaultText;
-
-    }
-    else {
+      searchInput.placeholder = defaultPlaceholder;
+    } else {
       heading.textContent = newText;
+
+      if (newText.toLowerCase().includes("flight")) {
+        // hide normal search, show flights form
+        defaultSearch.style.display = "none";
+        flightsSearch.style.display = "block";
+      } else {
+        searchInput.placeholder = newPlaceholder || defaultPlaceholder;
+      }
     }
   });
 });
+
 
 // Slideshow hero section
 let slides = document.querySelectorAll(".slide");
@@ -69,25 +92,6 @@ function nextSlide() {
 
 showSlide(index);
 setInterval(nextSlide, 2000);
-
-// Sign in pop up
-const modalOverlay = document.getElementById("modalOverlay");
-const openModal = document.getElementById("btn-sign-in");
-const closeModal = document.querySelector(".close");
-
-openModal.addEventListener("click", () => {
-  modalOverlay.style.display = "flex";
-});
-
-closeModal.addEventListener("click", () => {
-  modalOverlay.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === modalOverlay) {
-    modalOverlay.style.display = "none";
-  }
-});
 
 // image slider under hero section
 const track = document.querySelector('.slider-track');

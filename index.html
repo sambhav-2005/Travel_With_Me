@@ -45,11 +45,6 @@
           </ul>
         </li>
         <li class="capsule">More</li>
-        <li class="search-container">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input id="search_element" type="text" name="search_bar" placeholder="Search">
-        </li>
-        <li><button id="btn-sign-in">Log in</button></li>
         <li><a href="signup.html"><button id="btn-sign-up">Sign up</button></a></li>
       </ul>
     </div>
@@ -59,22 +54,46 @@
     <div class="choices">
       <ul>
         <li class="underlined"><i class="fa fa-list" aria-hidden="true">&nbsp;</i>Search All</li>
-        <li class="underlined" data-title="Stay somewhere Great"><i class="fa fa-bed"
+        <li class="underlined" data-title="Stay somewhere Great" data-placeholder="Hotel name or destination"><i class="fa fa-bed"
             aria-hidden="true">&nbsp;</i>Hotels</li>
-        <li class="underlined" data-title="Do something fun"><i class="fa fa-camera" aria-hidden="true">&nbsp;</i>Things
+        <li class="underlined" data-title="Do something fun" data-placeholder="Attraction, activity or destination"><i class="fa fa-camera" aria-hidden="true">&nbsp;</i>Things
           to Do</li>
-        <li class="underlined" data-title="Find the best restaurants" onclick="openRestaurant()">
-          <i class="fa fa-cutlery" aria-hidden="true">&nbsp;</i>Restaurants
-        </li>
-        <li class="underlined" data-title="Find the best flight" onclick="openFlights()">
-          <i class="fa fa-plane" aria-hidden="true">&nbsp;</i>Flights
-        </li>
-        <li class="underlined" data-title="Find the best holiday homes" onclick="openHomes()">
-          <i class="fa fa-home" aria-hidden="true">&nbsp;</i>Holiday Homes
-        </li>
-
+        <li class="underlined" data-title="Find places to eat"><i class="fa fa-cutlery"
+            aria-hidden="true">&nbsp;</i>Restaurants</li>
+        <li class="underlined" data-title="Find the best flight"><i class="fa fa-plane"
+            aria-hidden="true">&nbsp;</i>Flights</li>
+        <li class="underlined" data-title="Explore places to rent"><i class="fa fa-home"
+            aria-hidden="true">&nbsp;</i>Holiday Homes</li>
 
       </ul>
+      <div class="search-container default-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="search_element" type="text" name="search_bar" data-placeholder="Places to go, things to do, hotels...">
+        <button class="search-button">Search</button>
+      </div>
+      <div class="flights-container flights-search" style="display: none;">
+        <form id="search-flight">
+          <div class="input-group">
+            <i class="fas fa-plane-departure"></i>
+            <span class="fixed-text">&nbsp;From:</span>
+            <input type="text" class="input-placeholder" placeholder="Origin">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-plane-arrival"></i>
+            <span class="fixed-text">&nbsp;To:</span>
+            <input type="text" class="input-placeholder" placeholder="Destination">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="text" class="input-placeholder" placeholder="&nbsp;1 Jan &rarr; 10 Jan">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-user-friends"></i>
+            <input type="number" class="input-placeholder" placeholder="&nbsp;1 Traveler">
+          </div>
+          <button type="submit" class="search-button" id="btn-src">Search</button>
+        </form>
+      </div>
     </div>
   </section>
   <section class="hero">
