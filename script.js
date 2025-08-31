@@ -232,20 +232,62 @@ if (loggedInUser) {
 
   const userData = JSON.parse(localStorage.getItem(loggedInUser));
 
-  if(greetMessage&& userData.name){
+  if (greetMessage && userData.name) {
     greetMessage.textContent = `Hello, ${userData.name}`;
   }
 }
 
-if(userDashboardBtn){
+if (userDashboardBtn) {
   userDashboardBtn.addEventListener("click", () => {
     window.location.href = "dashboard.html";
-    
+
   });
 }
 
 
+// Hotel Overlay
+const openHotelsBtn = document.getElementById("openHotels");
+const hotelOverlay = document.getElementById("hotelOverlay");
+const closeHotelModal = document.getElementById("closeHotelModal");
+const hotelSearch = document.getElementById("hotelSearch");
+const priceFilter = document.getElementById("priceFilter");
+const hotelCards = document.querySelectorAll(".hotel-card");
 
+// Open overlay
+openHotelsBtn.addEventListener("click", () => {
+  hotelOverlay.style.display = "flex";
+});
+
+// Close overlay
+closeHotelModal.addEventListener("click", () => {
+  hotelOverlay.style.display = "none";
+});
+
+// Search function
+hotelSearch.addEventListener("input", () => {
+  let query = hotelSearch.value.toLowerCase();
+  hotelCards.forEach(card => {
+    let name = card.querySelector("h3").textContent.toLowerCase();
+    card.style.display = name.includes(query) ? "block" : "none";
+  });
+});
+
+// Filter by price
+priceFilter.addEventListener("change", () => {
+  let filter = priceFilter.value;
+  hotelCards.forEach(card => {
+    let price = parseInt(card.getAttribute("data-price"));
+    if (filter === "low" && price >= 100) {
+      card.style.display = "none";
+    } else if (filter === "mid" && (price < 100 || price > 200)) {
+      card.style.display = "none";
+    } else if (filter === "high" && price <= 200) {
+      card.style.display = "none";
+    } else {
+      card.style.display = "block";
+    }
+  });
+});
 
 // // Get flight overlay
 // const flightOverlay = document.getElementById("flightOverlay");

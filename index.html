@@ -66,7 +66,7 @@
     <div class="choices">
       <ul>
         <li class="underlined"><i class="fa fa-list" aria-hidden="true">&nbsp;</i>Search All</li>
-        <li class="underlined" data-title="Stay somewhere Great" data-placeholder="Hotel name or destination"><i
+        <li class="underlined" data-title="Stay somewhere Great" data-placeholder="Hotel name or destination" id="openHotels"><i
             class="fa fa-bed" aria-hidden="true">&nbsp;</i>Hotels</li>
         <li class="underlined" data-title="Do something fun" data-placeholder="Attraction, activity or destination"><i
             class="fa fa-camera" aria-hidden="true">&nbsp;</i>Things
@@ -135,48 +135,56 @@
     <h1>Best Selling Destinations</h1>
     <div class="slider-container">
       <button class="prev">&#10094;</button>
-      <div class="slider-track">
-        <div class="img-container">
-          <img src="images/keral.jpg" alt="keral">
-          <div class="dest-caption">Kerela</div>
-        </div>
-        <div class="img-container">
-          <img src="images/manal.jpg" alt="manali">
-          <div class="dest-caption">Manali</div>
-        </div>
-        <div class="img-container">
-          <img src="images/goa.jpg" alt="keral">
-          <div class="dest-caption">Goa</div>
-        </div>
-        <div class="img-container">
-          <img src="images/jaipur.jpg" alt="keral">
-          <div class="dest-caption">Jaipur</div>
-        </div>
-        <div class="img-container">
-          <img src="images/rishikesh.jpg" alt="keral">
-          <div class="dest-caption">Rishikesh</div>
-        </div>
-        <div class="img-container">
-          <img src="images/newdelhi.jpg" alt="keral">
-          <div class="dest-caption">New Delhi</div>
-        </div>
-        <div class="img-container">
-          <img src="images/coorgupdated.jpg" alt="coorg">
-          <div class="dest-caption">Coorg</div>
-        </div>
-        <div class="img-container">
-          <img src="images/lakshdweep.jpg" alt="lakshdweep">
-          <div class="dest-caption">Lakshdweep</div>
-        </div>
-        <div class="img-container">
-          <img src="images/pahalgham.jpg" alt="Pahalgham">
-          <div class="dest-caption">Pahalgham</div>
-        </div>
-        <div class="img-container">
-          <img src="images/mysore.jpg" alt="mysore">
-          <div class="dest-caption">Mysore</div>
+
+      <div class="slider-window">
+        <div class="slider-track">
+          <div class="img-container">
+            <img src="images/keral.jpg" alt="keral">
+            <div class="dest-caption">Kerela</div>
+          </div>
+          <div class="img-container">
+            <img src="images/manal.jpg" alt="manali">
+            <div class="dest-caption">Manali</div>
+          </div>
+          <div class="img-container">
+            <img src="images/goa.jpg" alt="keral">
+            <div class="dest-caption">Goa</div>
+          </div>
+          <div class="img-container">
+            <img src="images/jaipur.jpg" alt="keral">
+            <div class="dest-caption">Jaipur</div>
+          </div>
+          <div class="img-container">
+            <img src="images/rishikesh.jpg" alt="keral">
+            <div class="dest-caption">Rishikesh</div>
+          </div>
+          <div class="img-container">
+            <img src="images/newdelhi.jpg" alt="keral">
+            <div class="dest-caption">New Delhi</div>
+          </div>
+          <div class="img-container">
+            <img src="images/coorgupdated.jpg" alt="coorg">
+            <div class="dest-caption">Coorg</div>
+          </div>
+          <div class="img-container">
+            <img src="images/lakshdweep.jpg" alt="lakshdweep">
+            <div class="dest-caption">Lakshdweep</div>
+          </div>
+          <div class="img-container">
+            <img src="images/pahalgham.jpg" alt="Pahalgham">
+            <div class="dest-caption">Pahalgham</div>
+          </div>
+          <div class="img-container">
+            <img src="images/mysore.jpg" alt="mysore">
+            <div class="dest-caption">Mysore</div>
+          </div>
+          <div class="img-container">
+            <img src="images/ooty.jpg" alt="ooty">
+            <div class="dest-caption">Ooty</div>
+          </div>
         </div>
       </div>
+
       <button class="next">&#10095;</button>
     </div>
   </section>
@@ -268,6 +276,132 @@
     </div>
     <div class="whatsapp-message">WhatsApp Us</div>
   </div>
+
+<!-- Hotel Overlay -->
+<div id="hotelOverlay" class="hotel-overlay">
+  <div class="hotel-modal">
+    <span id="closeHotelModal" class="hotel-close">&times;</span>
+    <h2>Find Your Stay</h2>
+
+    <!-- Search and Filter -->
+    <div class="hotel-controls">
+      <input type="text" id="hotelSearch" placeholder="Search hotels...">
+      <select id="priceFilter">
+        <option value="all">Filter by price</option>
+        <option value="low">Below $100</option>
+        <option value="mid">$100 - $200</option>
+        <option value="high">Above $200</option>
+      </select>
+    </div>
+
+    <!-- Hotels List -->
+    <div id="hotelList" class="hotel-list">
+  <div class="hotel-card" data-price="80">
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Budget Inn">
+    <h3>Budget Inn</h3>
+    <p>Price: $80</p>
+  </div>
+  <div class="hotel-card" data-price="95">
+    <img src=https://plus.unsplash.com/premium_photo-1661962360690-e91cc0df88f1?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D alt="City Lodge">
+    <h3>City Lodge</h3>
+    <p>Price: $95</p>
+  </div>
+  <div class="hotel-card" data-price="120">
+    <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Comfort Stay">
+    <h3>Comfort Stay</h3>
+    <p>Price: $120</p>
+  </div>
+  <div class="hotel-card" data-price="150">
+    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWwlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" alt="Grand View">
+    <h3>Grand View</h3>
+    <p>Price: $150</p>
+  </div>
+  <div class="hotel-card" data-price="170">
+    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Palm Resort">
+    <h3>Palm Resort</h3>
+    <p>Price: $170</p>
+  </div>
+  <div class="hotel-card" data-price="200">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Seaside Retreat">
+    <h3>Seaside Retreat</h3>
+    <p>Price: $200</p>
+  </div>
+  <div class="hotel-card" data-price="220">
+    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury Palace">
+    <h3>Luxury Palace</h3>
+    <p>Price: $220</p>
+  </div>
+  <div class="hotel-card" data-price="250">
+    <img src="https://images.unsplash.com/photo-1626255047415-fdb067552f9b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" alt="Downtown Suites">
+    <h3>Downtown Suites</h3>
+    <p>Price: $250</p>
+  </div>
+  <div class="hotel-card" data-price="275">
+    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Skyline Hotel">
+    <h3>Skyline Hotel</h3>
+    <p>Price: $275</p>
+  </div>
+  <div class="hotel-card" data-price="300">
+    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Metropolitan Stay">
+    <h3>Metropolitan Stay</h3>
+    <p>Price: $300</p>
+  </div>
+  <div class="hotel-card" data-price="320">
+    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elite Residency">
+    <h3>Elite Residency</h3>
+    <p>Price: $320</p>
+  </div>
+  <div class="hotel-card" data-price="350">
+    <img src="https://plus.unsplash.com/premium_photo-1661877303180-19a028c21048?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" alt="Royal Heritage">
+    <h3>Royal Heritage</h3>
+    <p>Price: $350</p>
+  </div>
+  <div class="hotel-card" data-price="380">
+    <img src="https://plus.unsplash.com/premium_photo-1661963123153-5471a95b7042?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aG90ZWwlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" alt="Mountain Villa">
+    <h3>Mountain Villa</h3>
+    <p>Price: $380</p>
+  </div>
+  <div class="hotel-card" data-price="400">
+    <img src="https://media.istockphoto.com/id/514102692/photo/udaipur-city-palace-in-rajasthan-state-of-india.webp?a=1&b=1&s=612x612&w=0&k=20&c=vrI8mr6Plncbv77t_y2ejmc7snDlFR9hE-UefEDjn24=" alt="Paradise Resort">
+    <h3>Paradise Resort</h3>
+    <p>Price: $400</p>
+  </div>
+  <div class="hotel-card" data-price="420">
+    <img src="https://media.istockphoto.com/id/1298306226/photo/young-woman-riding-bicycle-on-wooden-pier-in-the-maldives.jpg?s=612x612&w=0&k=20&c=Oy9pCLXq2nGqSRSeJy9rJcau3laxqH13asaEU07Fu_I=" alt="Blue Lagoon Hotel">
+    <h3>Blue Lagoon Hotel</h3>
+    <p>Price: $420</p>
+  </div>
+  <div class="hotel-card" data-price="450">
+    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classic Residency">
+    <h3>Classic Residency</h3>
+    <p>Price: $450</p>
+  </div>
+  <div class="hotel-card" data-price="480">
+    <img src="https://media.istockphoto.com/id/1248298343/photo/3d-rendering-of-a-luxury-restaurant-interior-at-night.jpg?s=612x612&w=0&k=20&c=HATLl-O0gMhEEFP5gOA48YrCiFAw5J4gMD69I7WIhlg=" alt="Holiday Comfort">
+    <h3>Holiday Comfort</h3>
+    <p>Price: $480</p>
+  </div>
+  <div class="hotel-card" data-price="500">
+    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="The Grand Hotel">
+    <h3>The Grand Hotel</h3>
+    <p>Price: $500</p>
+  </div>
+  <div class="hotel-card" data-price="550">
+    <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Design Inn">
+    <h3>Design Inn</h3>
+    <p>Price: $550</p>
+  </div>
+  <div class="hotel-card" data-price="600">
+    <img src="https://media.istockphoto.com/id/146765403/photo/a-luxurious-florida-beach-hotel-during-sunrise.jpg?s=612x612&w=0&k=20&c=pxw9Q78KbvqV6_pS_C-v_m6S_WQjKWLBSdqgRtqMUUg=" alt="Ocean Breeze">
+    <h3>Ocean Breeze</h3>
+    <p>Price: $600</p>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+
   <!-- <div id="flightOverlay" class="overlay">
     <div class="modal flight-modal">
       <span class="close" onclick="closeFlights()">&times;</span>

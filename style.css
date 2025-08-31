@@ -1045,3 +1045,72 @@
         padding: 10px 0 6px 0;
     }
 } 
+
+
+/* Hotel Overlay */
+.hotel-overlay {
+  display: none; 
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hotel-modal {
+  background: white;
+  width: 50%;
+  height: 50%;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.hotel-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.hotel-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hotel-controls input,
+.hotel-controls select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.hotel-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.hotel-card {
+  width: 30%;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.hotel-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
