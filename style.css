@@ -737,9 +737,311 @@
     font-size: 24px;
     cursor: pointer;
 }
-
+.footer {
+    background: #181818;
+    color: #f3f3f3;
+    padding: 40px 0 0 0;
+    font-size: 1rem;
+    margin-top: 40px;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+.footer-links a {
+    color: #f3f3f3;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #ffd700;
+}
+.footer-social {
+    display: flex;
+    gap: 16px;
+}
+.footer-social a {
+    color: #f3f3f3;
+    font-size: 1.3rem;
+    transition: color 0.2s;
+}
+.footer-social a:hover {
+    color: #ffd700;
+}
+.footer-bottom {
+    text-align: center;
+    padding: 18px 0 10px 0;
+    font-size: 0.95rem;
+    color: #bdbdbd;
+    background: #151515;
+    margin-top: 24px;
+}
 @media (max-width: 768px) {
     .img-container {
         min-width: 70%;
     }
+    .footer-container {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+    .footer-logo {
+        justify-content: center;
+    }
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .footer-social {
+        justify-content: center;
+    }
 }
+
+
+
+@media (max-width: 700px) {
+    .hero {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        border-radius: 0;
+        padding: 0;
+    }
+    .hero .left, .hero .right {
+        width: 100%;
+        margin: 0;
+        padding: 5px 0;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .hero .slideshow {
+        width: 100%;
+        height: 120px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .hero .left .mention-capsule {
+        left: 5px;
+        bottom: 10px;
+        width: 40px;
+        font-size: 0.8rem;
+        padding: 3px;
+    }
+    .hero .partition {
+        display: none;
+    }
+    .hero .right .content {
+        gap: 10px;
+        margin: 0;
+        padding: 5px 0;
+        width: 100%;
+    }
+    .hero .right .content .heading {
+        font-size: 1rem;
+        width: 100%;
+        margin: 0;
+    }
+    .hero .right .content p {
+        font-size: 0.95rem;
+    }
+    #btn-book-now {
+        font-size: 1rem;
+        padding: 8px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar ul {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+    }
+    .navbar ul li img {
+        height: 120px;
+        width: 130px;
+    }
+    .hero {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        border-radius: 0;
+    }
+    .hero .left, .hero .right {
+        margin: 0;
+        padding: 10px;
+    }
+    .hero .partition {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .header h1 {
+        font-size: 32px;
+    }
+    .header .choices ul {
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        padding: 10px 0 0 0;
+    }
+    .default-search input {
+        font-size: 15px;
+        padding: 12px 60px 10px 20px;
+    }
+    .hero .right .content .heading {
+        font-size: 28px;
+        width: 100%;
+    }
+    .featured-tours h1 {
+        font-size: 32px;
+    }
+    .featured-tours .tour-cards {
+        flex-direction: column;
+        gap: 24px;
+        padding: 0;
+    }
+    .featured-tours .tour-cards .first-tour {
+        width: 100%;
+        height: auto;
+    }
+    .featured-tours .tour-cards .first-tour img {
+        width: 100%;
+        height: 180px;
+    }
+    .slider-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+    .img-container {
+        min-width: 180px;
+        max-width: 200px;
+        height: 140px;
+    }
+    .destinations .slider-track .img-container img {
+        height: 140px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 6px;
+        height: auto;
+    }
+    .navbar ul li img {
+        height: 70px;
+        width: 80px;
+    }
+    .header h1 {
+        font-size: 22px;
+        margin: 10px 0;
+    }
+    .hero {
+        flex-direction: column;
+        height: auto;
+        border-radius: 0;
+        width: 100%;
+        padding: 0;
+    }
+    .hero .left, .hero .right {
+        margin: 0;
+        padding: 5px;
+    }
+    .hero .right .content {
+        gap: 12px;
+        margin: 0;
+        padding: 10px;
+    }
+    .hero .right .content .heading {
+        font-size: 18px;
+        width: 100%;
+        margin: 0;
+    }
+    .default-search input {
+        font-size: 13px;
+        padding: 8px 40px 8px 10px;
+        margin: 10px 0;
+    }
+    .search-container .search-button {
+        width: 70px;
+        padding: 10px;
+        font-size: 13px;
+    }
+    .flights-search #search-flight {
+        flex-direction: column;
+        gap: 8px;
+        margin: 10px 0;
+    }
+    .img-container {
+        min-width: 120px;
+        max-width: 140px;
+        height: 80px;
+    }
+    .destinations .slider-track .img-container img {
+        height: 80px;
+    }
+    .featured-tours h1 {
+        font-size: 22px;
+    }
+    .featured-tours .tour-cards {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+    }
+    .featured-tours .tour-cards .first-tour {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+    }
+    .featured-tours .tour-cards .first-tour img {
+        width: 100%;
+        height: 100px;
+    }
+    .footer {
+        padding: 20px 0 0 0;
+        font-size: 0.9rem;
+    }
+    .footer-logo img {
+        width: 40px;
+        height: 40px;
+    }
+    .footer-title {
+        font-size: 1rem;
+    }
+    .footer-links {
+        gap: 10px;
+        font-size: 0.95rem;
+    }
+    .footer-social {
+        gap: 8px;
+        font-size: 1rem;
+    }
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding: 10px 0 6px 0;
+    }
+} 
