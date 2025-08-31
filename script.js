@@ -66,16 +66,44 @@ listItems.forEach(item => {
 
 
 // Slideshow hero section
+let slides = document.querySelectorAll(".slide");
+let caption = document.getElementById("caption-text");
+let index = 0;
+
+let captions = [
+  "@John C",
+  "@Sarah M",
+  "@David K",
+  "@Emily R"
+];
+
+function showSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.style.display = (i === n) ? "block" : "none";
+  });
+  caption.textContent = captions[n];
+}
+
+function nextSlide() {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+
+}
+
+showSlide(index);
+setInterval(nextSlide, 2000);
+
+// image slider under hero section
 const track = document.querySelector('.slider-track');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
-const slides = document.querySelectorAll('.img-container');
+const slide = document.querySelectorAll('.img-container');
 
-let index = 0; // Current slide index
+let i = 0; // Current slide index
 
 // Calculate total scrollable width
 function getSlideWidth() {
-  return slides[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginRight);
+  return slide[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginRight);
 }
 
 function updateSlider() {
@@ -83,23 +111,23 @@ function updateSlider() {
   const maxIndex = slides.length - 1;
   
   // Clamp index to stay within bounds
-  if (index < 0) index = 0;
-  if (index > maxIndex) index = maxIndex;
+  if (index < 0) i = 0;
+  if (index > maxIndex) i = maxIndex;
 
   track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
 prev.addEventListener('click', () => {
-  index--;
+  i--;
   updateSlider();
 });
 
 next.addEventListener('click', () => {
-  index++;
+  i++;
   updateSlider();
 });
 
-// Optional: update on window resize
+
 window.addEventListener('resize', updateSlider);
 
 // Initialize
