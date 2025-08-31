@@ -96,12 +96,66 @@
     background: rgb(239, 237, 237);
 }
 
+#btn-log-in {
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(8, 8, 40);
+    color: white;
+    cursor: pointer;
+}
+
 #btn-sign-up {
     border-radius: 30px;
     padding: 10px;
     background-color: rgb(8, 8, 40);
     color: white;
     cursor: pointer;
+}
+
+#btn-user-dashboard {
+    padding: 12px;
+    border-radius: 80%;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2);
+    color: rgb(8, 8, 40);
+    font-size: 22px;
+    background: none;
+    border: none;
+}
+
+#btn-user-dashboard .fas {
+    font-size: 20px
+}
+
+.user-dashboard {
+    position: relative;
+    display: none;
+}
+
+
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: rgb(8, 8, 40);
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    top: 120%;
+    /* below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.user-dashboard:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 .header {
@@ -129,7 +183,6 @@
 .search-container {
     margin: 24px auto;
 }
-
 
 .header .choices ul li {
     list-style: none;
@@ -175,9 +228,10 @@
     color: rgb(8, 8, 40);
     font-size: 18px;
     pointer-events: none;
-    
+
 }
-.search-container .search-button{
+
+.search-container .search-button {
     position: absolute;
     right: -10px;
     top: 15%;
@@ -191,38 +245,42 @@
     border-radius: 28px;
     background: rgb(8, 8, 40);
 }
+
 .flights-search .fixed-text {
-  color: rgb(8, 8, 40); 
-  font-weight: bold;
-  margin-right: 5px;
+    color: rgb(8, 8, 40);
+    font-weight: bold;
+    margin-right: 5px;
 }
-.flights-search #search-flight{
+
+.flights-search #search-flight {
     display: flex;
     margin: 25px;
     gap: 14px;
     align-items: center;
     justify-content: center;
 }
+
 .flights-search .input-placeholder {
-  border: none;
-  background-color: transparent;
-  width: 100%;
-  font-size: 1rem;
-  outline: none;
-  color: #8c8c8c;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+    color: #8c8c8c;
 }
 
 .flights-search .input-group {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f7f9fa;
-  border: 1px solid #e0e4e6;
-  border-radius: 50px;
-  flex-grow: 1;
-  max-width: 250px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f7f9fa;
+    border: 1px solid #e0e4e6;
+    border-radius: 50px;
+    flex-grow: 1;
+    max-width: 250px;
 }
-#btn-src{
+
+#btn-src {
     background-color: rgb(8, 8, 40);
     color: white;
     padding: 10px;
@@ -334,18 +392,20 @@
 .destinations {
     display: flex;
     flex-direction: column;
-    align-items: center;  
-    margin: 40px auto;     
-    max-width: 1350px;     
+    align-items: center;
+    margin: 40px auto;
+    max-width: 1350px;
     padding: 22px;
     box-sizing: border-box;
 }
+
 .destinations h1 {
     font-size: 32px;
-    text-align: center; 
+    text-align: center;
     margin-bottom: 20px;
     width: 100%;
 }
+
 .slider-container {
     position: relative;
     overflow: hidden;
@@ -385,42 +445,51 @@
     font-size: 30px;
     font-weight: bolder;
 }
-.prev, .next {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 2;
-  border-radius: 100%;
-  padding: 10px;
+
+.prev,
+.next {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 100%;
+    padding: 10px;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev {
+    left: 10px;
+}
 
-.featured-tours{
+.next {
+    right: 10px;
+}
+
+.featured-tours {
     display: flex;
     flex-direction: column;
     margin: 14px;
     padding: 34px;
     align-items: center;
 }
-.featured-tours h1{
+
+.featured-tours h1 {
     font-size: 50px;
     font-weight: bolder;
 }
 
-.featured-tours .tour-cards{
+.featured-tours .tour-cards {
     display: flex;
     justify-content: center;
     padding: 34px;
     gap: 52px;
 }
-.featured-tours .tour-cards .first-tour{
+
+.featured-tours .tour-cards .first-tour {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -432,44 +501,53 @@
     border: 1px solid #e0e0e0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.featured-tours .tour-cards .first-tour:hover{
+
+.featured-tours .tour-cards .first-tour:hover {
     cursor: pointer;
     transform: scale(1.05);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
-.featured-tours .tour-cards .first-tour img{
+
+.featured-tours .tour-cards .first-tour img {
     height: 300px;
     width: 360px;
     margin: 0;
 
 }
-.featured-tours .tour-cards .tour-information{
+
+.featured-tours .tour-cards .tour-information {
     width: 300px;
     margin: 10px;
     padding: 12px;
 }
-.information-capsules{
+
+.information-capsules {
     display: flex;
     margin: 22px 28px 0px;
     gap: 20px;
 }
-.tour-information p{
+
+.tour-information p {
     padding: 5px;
-}
-.tour-information p2{
-    padding: 5px;
-    font-size: 15px;
-    color:#555;
 }
 
-.price-capsule, .rate-capsule{
+.tour-information p2 {
+    padding: 5px;
+    font-size: 15px;
+    color: #555;
+}
+
+.price-capsule,
+.rate-capsule {
     background-color: rgb(8, 8, 40);
     color: white;
     font-size: 15px;
     border-radius: 5px;
     padding: 6px;
 }
-.rate-capsule .fas, .far{
+
+.rate-capsule .fas,
+.far {
     color: white;
     padding: 2px;
 }
@@ -538,9 +616,6 @@
 }
 
 .modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background: #fff;
     padding: 2.5rem 2rem;
     border-radius: 12px;
@@ -549,6 +624,22 @@
     text-align: center;
     position: relative;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.modal h2 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+.modal h2 {
+    margin-top: 0;
+}
+
+.modal .logo {
+    height: 200px;
+    width: 200px;
 }
 
 .close {
@@ -559,13 +650,15 @@
     cursor: pointer;
 }
 
-.google-btn,.email-btn {
+.google-btn,
+.email-btn {
     display: flex;
-    justify-content: center;
-    gap: 22px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 100px;
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin: 5px 0;
     border-radius: 25px;
     border: 1px solid #ccc;
     background: #fff;
@@ -573,11 +666,11 @@
 }
 
 .email-btn .fa-envelope {
-    font-size: 20px;
-
+    font-size: 18px;
 }
 
 .terms {
+    margin: 22px 0px 0px 0px;
     font-size: 14px;
     color: #555;
 }
@@ -586,8 +679,67 @@
     color: green;
 }
 
+.loginOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.login .logo {
+    align-self: center;
+    height: 200px;
+    width: 200px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.login input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 24px;
+    box-sizing: border-box;
+}
+
+.login button {
+    align-self: center;
+    padding: 12px;
+    width: 130px;
+    border-radius: 24px;
+    background-color: rgb(8, 8, 40);
+    color: white;
+}
+
+.closeLogin {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
-  .img-container {
-    min-width: 70%;
-  }
+    .img-container {
+        min-width: 70%;
+    }
 }

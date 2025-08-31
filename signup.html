@@ -88,6 +88,7 @@
             }
 
             if (valid) {
+                localStorage.setItem("showLoginModal", "true");
                 document.getElementById("successMessage").style.display = "block";
                 setTimeout(function () {
                     window.location.href = "index.html";

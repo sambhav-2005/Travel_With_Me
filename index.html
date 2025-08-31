@@ -45,7 +45,19 @@
           </ul>
         </li>
         <li class="capsule">More</li>
-        <li><a href="signup.html"><button id="btn-sign-up">Sign up</button></a></li>
+        <li>
+          <div id="auth-buttons">
+            <button id="btn-log-in">Log in</button>
+            <a href="signup.html"><button id="btn-sign-up">Sign up</button></a>
+          </div>
+          <div class="user-dashboard" style="display: none;">
+            <button id="btn-user-dashboard">
+              <i class="fas fa-user"></i>
+            </button>
+            <span class="tooltip" id="greetMessage">Hello, User</span>
+          </div>
+
+        </li>
       </ul>
     </div>
   </nav>
@@ -54,12 +66,13 @@
     <div class="choices">
       <ul>
         <li class="underlined"><i class="fa fa-list" aria-hidden="true">&nbsp;</i>Search All</li>
-        <li class="underlined" data-title="Stay somewhere Great" data-placeholder="Hotel name or destination"><i class="fa fa-bed"
-            aria-hidden="true">&nbsp;</i>Hotels</li>
-        <li class="underlined" data-title="Do something fun" data-placeholder="Attraction, activity or destination"><i class="fa fa-camera" aria-hidden="true">&nbsp;</i>Things
+        <li class="underlined" data-title="Stay somewhere Great" data-placeholder="Hotel name or destination"><i
+            class="fa fa-bed" aria-hidden="true">&nbsp;</i>Hotels</li>
+        <li class="underlined" data-title="Do something fun" data-placeholder="Attraction, activity or destination"><i
+            class="fa fa-camera" aria-hidden="true">&nbsp;</i>Things
           to Do</li>
-        <li class="underlined" data-title="Find places to eat" data-placeholder="Restaurant or Destination"><i class="fa fa-cutlery"
-            aria-hidden="true">&nbsp;</i>Restaurants</li>
+        <li class="underlined" data-title="Find places to eat" data-placeholder="Restaurant or Destination"><i
+            class="fa fa-cutlery" aria-hidden="true">&nbsp;</i>Restaurants</li>
         <li class="underlined" data-title="Find the best flight"><i class="fa fa-plane"
             aria-hidden="true">&nbsp;</i>Flights</li>
         <li class="underlined" data-title="Explore places to rent" data-placeholder="Destination"><i class="fa fa-home"
@@ -68,7 +81,8 @@
       </ul>
       <div class="search-container default-search">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input id="search_element" type="text" name="search_bar" data-placeholder="Places to go, things to do, hotels...">
+        <input id="search_element" type="text" name="search_bar"
+          data-placeholder="Places to go, things to do, hotels...">
         <button class="search-button">Search</button>
       </div>
       <div class="flights-container flights-search" style="display: none;">
@@ -220,11 +234,28 @@
   <div id="modalOverlay" class="overlay">
     <div class="modal">
       <span class="close">&times;</span>
-      <img src="images/imag-logo-removebg-preview.png" alt="logo00" height="200px" width="200px">
-      <h2>Sign in to unlock the best experience with us</h2>
+      <img class="logo" src="images/imag-logo-removebg-preview.png" alt="logo">
+      <h2>Sign in to unlock the best of Travel With Me</h2>
       <button class="google-btn"><img src="images/G_color_40x40.png" alt="Google" height="20px"><span>Continue with
           Google</span></button>
       <button class="email-btn"><i class="fas fa-envelope"></i>Continue with email</button>
+      <p class="terms">
+        By proceeding, you agree to our <a href="#">Terms of Use</a> and confirm
+        you have read our <a href="#">Privacy and Cookie Statement</a>.
+      </p>
+    </div>
+  </div>
+  <div class="loginOverlay" id="login">
+    <div class="login">
+      <span class="closeLogin">&times;</span>
+      <img class="logo" src="images/imag-logo-removebg-preview.png" alt="logo">
+      <h2>Welcome back!</h2>
+      <label for="Email">Email address</label>
+      <input id="user_email" type="email" placeholder="Email">
+      <label for="password">Password</label>
+      <input id="user_password" type="password" placeholder="Password">
+
+      <button id="enableLogin">Login</button>
       <p class="terms">
         By proceeding, you agree to our <a href="#">Terms of Use</a> and confirm
         you have read our <a href="#">Privacy and Cookie Statement</a>.
@@ -237,73 +268,77 @@
     </div>
     <div class="whatsapp-message">WhatsApp Us</div>
   </div>
-  <div id="flightOverlay" class="overlay">
+  <!-- <div id="flightOverlay" class="overlay">
     <div class="modal flight-modal">
       <span class="close" onclick="closeFlights()">&times;</span>
       <iframe src="flights.html"></iframe>
     </div>
-  </div>
+  </div> -->
 
   <!-- Holiday Homes Overlay -->
-<div id="homesOverlay" class="overlay">
-  <div class="modal">
-    <span class="close" onclick="closeHomes()">&times;</span>
-    <div class="homes-container">
-      <h2>Available Holiday Homes</h2>
-      <div class="homes-grid">
+  <!-- <div id="homesOverlay" class="overlay">
+    <div class="modal">
+      <span class="close" onclick="closeHomes()">&times;</span>
+      <div class="homes-container">
+        <h2>Available Holiday Homes</h2>
+        <div class="homes-grid"> -->
 
-        <!-- Home 1 -->
-        <div class="home-card">
-          <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511" alt="Banur Home">
-          <h3>Asija Holiday Home Banur</h3>
-          <p>Peaceful countryside stay with modern amenities.</p>
-          <span class="price">₹1,200/night</span>
+  <!-- Home 1 -->
+  <!-- <div class="home-card">
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511" alt="Banur Home">
+            <h3>Asija Holiday Home Banur</h3>
+            <p>Peaceful countryside stay with modern amenities.</p>
+            <span class="price">₹1,200/night</span>
+          </div> -->
+
+  <!-- Home 2 -->
+  <!-- <div class="home-card">
+            <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353" alt="Rajpura Home">
+            <h3>Sunam Holiday Villa Rajpura</h3>
+            <p>Spacious villa, perfect for families and groups.</p>
+            <span class="price">₹1,800/night</span>
+          </div> -->
+
+  <!-- Home 3 -->
+  <!-- <div class="home-card">
+            <img
+              src="https://lh3.googleusercontent.com/p/AF1QipPdWfDnkrFjEMXgN7K5Tu2GbneWFtIBtMHIGbe_=w574-h384-n-k-rw-no-v1"
+              alt="Chandigarh Home">
+            <h3>Royal Luxury Apartment Chandigarh</h3>
+            <p>Modern apartment in the heart of the city.</p>
+            <span class="price">₹2,500/night</span>
+          </div> -->
+
+  <!-- Home 4 -->
+  <!-- <div class="home-card">
+            <img
+              src="https://lh3.googleusercontent.com/proxy/8bdOJkGAzv7qF8pbd6rYLAOFXeTdDqodoz7iFNlzbP0HKapPB0RBxdarU0VnkCddV-QvjhH4R0wP67OuX3meXVE1Y6uiBTFaZPf-r3ChSv5b2_xaCUHokaXCZoN7cN6pmxTN-UFYL88rPXtZ8CI8NHqeaWui_w=w472-h352-n-k"
+              alt="Shimla Home">
+            <h3>Himalayan Retreat Shimla</h3>
+            <p>Mountain-view home surrounded by pine trees.</p>
+            <span class="price">₹3,000/night</span>
+          </div> -->
+
+  <!-- Home 5 -->
+  <!-- <div class="home-card">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="Manali Home">
+            <h3>Riverfront Cottage Manali</h3>
+            <p>Cozy cottage near the river, ideal for couples.</p>
+            <span class="price">₹2,200/night</span>
+          </div> -->
+
+  <!-- Home 6 -->
+  <!-- <div class="home-card">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Kasol Home">
+            <h3>Greenwoods Stay Kasol</h3>
+            <p>Beautiful eco-friendly home amidst lush greenery.</p>
+            <span class="price">₹1,600/night</span>
+          </div>
+
         </div>
-
-        <!-- Home 2 -->
-        <div class="home-card">
-          <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353" alt="Rajpura Home">
-          <h3>Sunam Holiday Villa Rajpura</h3>
-          <p>Spacious villa, perfect for families and groups.</p>
-          <span class="price">₹1,800/night</span>
-        </div>
-
-        <!-- Home 3 -->
-        <div class="home-card">
-          <img src="https://lh3.googleusercontent.com/p/AF1QipPdWfDnkrFjEMXgN7K5Tu2GbneWFtIBtMHIGbe_=w574-h384-n-k-rw-no-v1" alt="Chandigarh Home">
-          <h3>Royal Luxury Apartment Chandigarh</h3>
-          <p>Modern apartment in the heart of the city.</p>
-          <span class="price">₹2,500/night</span>
-        </div>
-
-        <!-- Home 4 -->
-        <div class="home-card">
-          <img src="https://lh3.googleusercontent.com/proxy/8bdOJkGAzv7qF8pbd6rYLAOFXeTdDqodoz7iFNlzbP0HKapPB0RBxdarU0VnkCddV-QvjhH4R0wP67OuX3meXVE1Y6uiBTFaZPf-r3ChSv5b2_xaCUHokaXCZoN7cN6pmxTN-UFYL88rPXtZ8CI8NHqeaWui_w=w472-h352-n-k" alt="Shimla Home">
-          <h3>Himalayan Retreat Shimla</h3>
-          <p>Mountain-view home surrounded by pine trees.</p>
-          <span class="price">₹3,000/night</span>
-        </div>
-
-        <!-- Home 5 -->
-        <div class="home-card">
-          <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" alt="Manali Home">
-          <h3>Riverfront Cottage Manali</h3>
-          <p>Cozy cottage near the river, ideal for couples.</p>
-          <span class="price">₹2,200/night</span>
-        </div>
-
-        <!-- Home 6 -->
-        <div class="home-card">
-          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267" alt="Kasol Home">
-          <h3>Greenwoods Stay Kasol</h3>
-          <p>Beautiful eco-friendly home amidst lush greenery.</p>
-          <span class="price">₹1,600/night</span>
-        </div>
-
       </div>
     </div>
-  </div>
-</div>
+  </div> -->
 
 
   <!-- Restaurant Modal

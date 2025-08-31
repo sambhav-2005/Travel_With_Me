@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Travel With Me</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><i class="fas fa-user"></i> Profile</li>
+        <li><i class="fas fa-suitcase-rolling"></i> My Trips</li>
+        <li><i class="fas fa-star"></i> Reviews</li>
+        <li><i class="fas fa-cog"></i> Settings</li>
+        <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1>Welcome, <span id="dashboardUser">User</span></h1>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <i class="fas fa-map"></i>
+          <h3>Plan a Trip</h3>
+          <p>Create and organize your upcoming adventures.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-heart"></i>
+          <h3>Saved Places</h3>
+          <p>Check out your favorite destinations.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-comment"></i>
+          <h3>Write a Review</h3>
+          <p>Share your travel experiences with others.</p>
+        </div>
+      </section>
+
+      <section class="travel-history">
+        <h2>Travel History</h2>
+        <div class="history-list">
+          <div class="history-card">
+            <img src="images/paris.jpg" alt="Paris">
+            <div>
+              <h3>Paris, France</h3>
+              <p>Visited: June 2023</p>
+            </div>
+          </div>
+          <div class="history-card">
+            <img src="images/dubai.jpg" alt="Dubai">
+            <div>
+              <h3>Dubai, UAE</h3>
+              <p>Visited: December 2023</p>
+            </div>
+          </div>
+          <div class="history-card">
+            <img src="images/goa.jpg" alt="Goa">
+            <div>
+              <h3>Goa, India</h3>
+              <p>Visited: March 2024</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+    </main>
+  </div>
+
+  <script>
+    // Replace username dynamically if logged in
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      const userData = JSON.parse(localStorage.getItem(loggedInUser));
+      if (userData && userData.name) {
+        document.getElementById("dashboardUser").textContent = userData.name;
+      }
+    }
+  </script>
+</body>
+</html>

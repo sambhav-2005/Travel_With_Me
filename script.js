@@ -155,40 +155,132 @@ track.addEventListener('touchend', (e) => {
   }
 });
 
-// Get flight overlay
-const flightOverlay = document.getElementById("flightOverlay");
+// Login modalOverlay
 
-// Function to open flights modal
-function openFlights() {
-  flightOverlay.style.display = "flex";   // or "block"
-  document.body.style.overflow = "hidden"; // prevent background scroll
-}
-// Function to close flights modal
-function closeFlights() {
-  flightOverlay.style.display = "none";
-  document.body.style.overflow = "auto"; // restore scroll
-}
+document.getElementById("btn-log-in").addEventListener("click", () => {
+  document.getElementById("login").style.display = "flex";
+});
 
-// Close when clicking outside modal
-window.addEventListener("click", function (e) {
-  if (e.target === flightOverlay) {
-    closeFlights();
+document.querySelector(".closeLogin").addEventListener("click", () => {
+  document.getElementById("login").style.display = "none";  // correct
+});
+
+window.addEventListener("click", (e) => {
+  let loginOverlay = document.getElementById("login");
+  if (e.target === loginOverlay) {
+    loginOverlay.style.display = "none";
   }
 });
 
-function openHomes() {
-  document.getElementById("homesOverlay").style.display = "flex";
+// validating the input details //
+document.getElementById("enableLogin").addEventListener('click', () => {
+  let inputtedEmail = document.getElementById("user_email").value.trim();
+  let inputtedPassword = document.getElementById("user_password").value;
+
+  const validUser = localStorage.getItem(inputtedEmail);
+  if (!validUser) {
+    alert("No account found with this email");
+    return;
+  }
+
+  const userData = JSON.parse(validUser);
+  if (userData.password === inputtedPassword) {
+    alert("Login Succesful");
+
+    localStorage.setItem("loggedInUser", inputtedEmail);
+
+    window.location.href = "index.html";
+  } else {
+    alert("Incorrect password");
+  }
+});
+
+if (localStorage.getItem("showLoginModal") === "true") {
+  document.getElementById("modalOverlay").style.display = "flex";
+  localStorage.removeItem("showLoginModal");
+
+  document.querySelector(".close").addEventListener("click", () => {
+    let loginDiv = document.getElementById("modalOverlay");
+    loginDiv.style.display = "none";
+  })
+
+  document.querySelector(".email-btn").addEventListener("click", () => {
+    let loginWithEmail = document.getElementById("login");
+    let mainModal = document.getElementById("modalOverlay");
+
+    mainModal.style.display = "none";
+    loginWithEmail.style.display = "flex";
+  });
+
+  document.querySelector(".closeLogin").addEventListener("click", () => {
+    let emailLogin = document.getElementById("login");
+    emailLogin.style.display = "none";
+  });
 }
 
-function closeHomes() {
-  document.getElementById("homesOverlay").style.display = "none";
+
+const authButtons = document.getElementById("auth-buttons");
+const userDashboard = document.querySelector('.user-dashboard');
+const userDashboardBtn = document.getElementById("btn-user-dashboard");
+const greetMessage = document.getElementById("greetMessage");
+
+const loggedInUser = localStorage.getItem("loggedInUser");
+
+if (loggedInUser) {
+  authButtons.style.display = "none";
+  userDashboard.style.display = "flex";
+
+  const userData = JSON.parse(localStorage.getItem(loggedInUser));
+
+  if(greetMessage&& userData.name){
+    greetMessage.textContent = `Hello, ${userData.name}`;
+  }
+}
+
+if(userDashboardBtn){
+  userDashboardBtn.addEventListener("click", () => {
+    window.location.href = "dashboard.html";
+    
+  });
 }
 
 
-function openRestaurant() {
-  document.getElementById("restaurantModal").classList.remove("hidden");
-}
 
-function closeRestaurant() {
-  document.getElementById("restaurantModal").classList.add("hidden");
-}
+
+// // Get flight overlay
+// const flightOverlay = document.getElementById("flightOverlay");
+
+// // Function to open flights modal
+// function openFlights() {
+//   flightOverlay.style.display = "flex";   // or "block"
+//   document.body.style.overflow = "hidden"; // prevent background scroll
+// }
+// // Function to close flights modal
+// function closeFlights() {
+//   flightOverlay.style.display = "none";
+//   document.body.style.overflow = "auto"; // restore scroll
+// }
+
+// // Close when clicking outside modal
+// window.addEventListener("click", function (e) {
+//   if (e.target === flightOverlay) {
+//     closeFlights();
+//   }
+// });
+
+// function openHomes() {
+//   document.getElementById("homesOverlay").style.display = "flex";
+// }
+
+// function closeHomes() {
+//   document.getElementById("homesOverlay").style.display = "none";
+// }
+
+
+// function openRestaurant() {
+//   document.getElementById("restaurantModal").classList.remove("hidden");
+// }
+
+// function closeRestaurant() {
+//   document.getElementById("restaurantModal").classList.add("hidden");
+// }
