@@ -66,94 +66,44 @@ listItems.forEach(item => {
 
 
 // Slideshow hero section
-let slides = document.querySelectorAll(".slide");
-let caption = document.getElementById("caption-text");
-let index = 0;
-
-let captions = [
-  "@John C",
-  "@Sarah M",
-  "@David K",
-  "@Emily R"
-];
-
-function showSlide(n) {
-  slides.forEach((slide, i) => {
-    slide.style.display = (i === n) ? "block" : "none";
-  });
-  caption.textContent = captions[n];
-}
-
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-
-}
-
-showSlide(index);
-setInterval(nextSlide, 2000);
-
-// image slider under hero section
 const track = document.querySelector('.slider-track');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
-const slid = document.querySelectorAll('.img-container');
+const slides = document.querySelectorAll('.img-container');
 
-let ind = 0;
-let slideWidth = slid[0].offsetWidth + 12; // initial width
-let totalSlides = slid.length;
+let index = 0; // Current slide index
 
-window.addEventListener('resize', () => {
-  slideWidth = slid[0].offsetWidth + 12;
-  updateSlide();
-});
-
-function updateSlide() {
-  track.style.transform = `translateX(-${ind * slideWidth}px)`;
+// Calculate total scrollable width
+function getSlideWidth() {
+  return slides[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginRight);
 }
 
-next.addEventListener('click', () => {
-  if (ind < totalSlides - 1) {
-    ind++;
-    updateSlide();
-  }
-});
+function updateSlider() {
+  const slideWidth = getSlideWidth();
+  const maxIndex = slides.length - 1;
+  
+  // Clamp index to stay within bounds
+  if (index < 0) index = 0;
+  if (index > maxIndex) index = maxIndex;
+
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
+}
 
 prev.addEventListener('click', () => {
-  if (ind > 0) {
-    ind--;
-    updateSlide();
-  }
+  index--;
+  updateSlider();
 });
 
-// Swipe support
-let startX = 0;
-let isDragging = false;
-
-track.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-  isDragging = true;
+next.addEventListener('click', () => {
+  index++;
+  updateSlider();
 });
 
-track.addEventListener('touchmove', (e) => {
-  if (!isDragging) return;
-  let moveX = e.touches[0].clientX - startX;
+// Optional: update on window resize
+window.addEventListener('resize', updateSlider);
 
-});
-
-track.addEventListener('touchend', (e) => {
-  isDragging = false;
-  let endX = e.changedTouches[0].clientX;
-  let diff = endX - startX;
-
-  if (diff < -50 && ind < totalSlides - 1) {
-    ind++;
-    updateSlide();
-  } else if (diff > 50 && ind > 0) {
-    ind--;
-    updateSlide();
-  }
-});
+// Initialize
+updateSlider();
 
 // Login modalOverlay
 
