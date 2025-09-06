@@ -98,23 +98,29 @@ const track = document.querySelector('.slider-track');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 const slide = document.querySelectorAll('.img-container');
+const sliderWindow = document.querySelector('.slider-window');
 
 let i = 0; // Current slide index
 
 // Calculate total scrollable width
 function getSlideWidth() {
-  return slide[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginRight);
+  const style = getComputedStyle(slide[0]);
+  return slide[0].offsetWidth + parseInt(style.marginRight);
 }
 
 function updateSlider() {
   const slideWidth = getSlideWidth();
-  const maxIndex = slides.length - 1;
-  
-  // Clamp index to stay within bounds
-  if (index < 0) i = 0;
-  if (index > maxIndex) i = maxIndex;
+  const visibleSlides = Math.floor(sliderWindow.offsetWidth / slideWidth);
 
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
+  const maxIndex = Math.max(slide.length - visibleSlides, 0);
+
+  if(i < 0){
+    i = maxIndex;
+  } else if (i > maxIndex) {
+    i = 0;
+  }
+
+  track.style.transform = `translateX(-${slideWidth * i}px)`;
 }
 
 prev.addEventListener('click', () => {
@@ -130,7 +136,6 @@ next.addEventListener('click', () => {
 
 window.addEventListener('resize', updateSlider);
 
-// Initialize
 updateSlider();
 
 // Login modalOverlay
@@ -154,22 +159,28 @@ window.addEventListener("click", (e) => {
 document.getElementById("enableLogin").addEventListener('click', () => {
   let inputtedEmail = document.getElementById("user_email").value.trim();
   let inputtedPassword = document.getElementById("user_password").value;
+  const loginMsg = document.getElementById("login-message");
+  loginMsg.textContent = "";
+  loginMsg.className = "login-message";
 
   const validUser = localStorage.getItem(inputtedEmail);
   if (!validUser) {
-    alert("No account found with this email");
+    loginMsg.textContent = "No account found with this email.";
+    loginMsg.classList.add("error");
     return;
   }
 
   const userData = JSON.parse(validUser);
   if (userData.password === inputtedPassword) {
-    alert("Login Succesful");
-
+    loginMsg.textContent = "Login successful!";
+    loginMsg.classList.add("success");
     localStorage.setItem("loggedInUser", inputtedEmail);
-
-    window.location.href = "index.html";
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1200);
   } else {
-    alert("Incorrect password");
+    loginMsg.textContent = "Incorrect password.";
+    loginMsg.classList.add("error");
   }
 });
 
@@ -221,86 +232,3 @@ if (userDashboardBtn) {
 
   });
 }
-
-
-// Hotel Overlay
-const openHotelsBtn = document.getElementById("openHotels");
-const hotelOverlay = document.getElementById("hotelOverlay");
-const closeHotelModal = document.getElementById("closeHotelModal");
-const hotelSearch = document.getElementById("hotelSearch");
-const priceFilter = document.getElementById("priceFilter");
-const hotelCards = document.querySelectorAll(".hotel-card");
-
-// Open overlay
-openHotelsBtn.addEventListener("click", () => {
-  hotelOverlay.style.display = "flex";
-});
-
-// Close overlay
-closeHotelModal.addEventListener("click", () => {
-  hotelOverlay.style.display = "none";
-});
-
-// Search function
-hotelSearch.addEventListener("input", () => {
-  let query = hotelSearch.value.toLowerCase();
-  hotelCards.forEach(card => {
-    let name = card.querySelector("h3").textContent.toLowerCase();
-    card.style.display = name.includes(query) ? "block" : "none";
-  });
-});
-
-// Filter by price
-priceFilter.addEventListener("change", () => {
-  let filter = priceFilter.value;
-  hotelCards.forEach(card => {
-    let price = parseInt(card.getAttribute("data-price"));
-    if (filter === "low" && price >= 100) {
-      card.style.display = "none";
-    } else if (filter === "mid" && (price < 100 || price > 200)) {
-      card.style.display = "none";
-    } else if (filter === "high" && price <= 200) {
-      card.style.display = "none";
-    } else {
-      card.style.display = "block";
-    }
-  });
-});
-
-// // Get flight overlay
-// const flightOverlay = document.getElementById("flightOverlay");
-
-// // Function to open flights modal
-// function openFlights() {
-//   flightOverlay.style.display = "flex";   // or "block"
-//   document.body.style.overflow = "hidden"; // prevent background scroll
-// }
-// // Function to close flights modal
-// function closeFlights() {
-//   flightOverlay.style.display = "none";
-//   document.body.style.overflow = "auto"; // restore scroll
-// }
-
-// // Close when clicking outside modal
-// window.addEventListener("click", function (e) {
-//   if (e.target === flightOverlay) {
-//     closeFlights();
-//   }
-// });
-
-// function openHomes() {
-//   document.getElementById("homesOverlay").style.display = "flex";
-// }
-
-// function closeHomes() {
-//   document.getElementById("homesOverlay").style.display = "none";
-// }
-
-
-// function openRestaurant() {
-//   document.getElementById("restaurantModal").classList.remove("hidden");
-// }
-
-// function closeRestaurant() {
-//   document.getElementById("restaurantModal").classList.add("hidden");
-// }
