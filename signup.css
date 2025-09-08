@@ -19,29 +19,35 @@ body {
     width: 440px;
     max-width: 95vw;
 }
-.img{
+
+.img {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.img img{
+
+.img img {
     height: 180px;
     width: 180px;
     max-width: 80vw;
 }
+
 h2 {
     text-align: center;
     color: #333;
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
+
 .terms {
     font-size: 13px;
     color: #555;
 }
+
 .terms a {
     color: green;
 }
@@ -56,9 +62,9 @@ input {
 }
 
 input:focus {
-  outline: none;
-  border: 1px solid #4cafef;
-  box-shadow: 0 0 5px rgba(76, 175, 239, 0.5);
+    outline: none;
+    border: 1px solid #4cafef;
+    box-shadow: 0 0 5px rgba(76, 175, 239, 0.5);
 }
 
 button {
@@ -81,12 +87,13 @@ button:hover {
     display: block;
     margin-top: 10px;
 }
-form a{
+
+form a {
     color: inherit;
     text-decoration: none;
 }
 
-#successMessage{
+#successMessage {
     display: none;
     color: green;
     text-align: center;

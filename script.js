@@ -114,7 +114,7 @@ function updateSlider() {
 
   const maxIndex = Math.max(slide.length - visibleSlides, 0);
 
-  if(i < 0){
+  if (i < 0) {
     i = maxIndex;
   } else if (i > maxIndex) {
     i = 0;
@@ -139,7 +139,6 @@ window.addEventListener('resize', updateSlider);
 updateSlider();
 
 // Login modalOverlay
-
 document.getElementById("btn-log-in").addEventListener("click", () => {
   document.getElementById("login").style.display = "flex";
 });
